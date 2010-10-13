@@ -11,5 +11,6 @@
 @interface ClipboardWindowController : NSWindowController {
 	IBOutlet NSTextField *messageField;
 }
+
 - (IBAction)saySomething:(id)sender;
 @end

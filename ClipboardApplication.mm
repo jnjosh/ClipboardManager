@@ -44,7 +44,7 @@ void toggleClipManagerWindow() {
 	NSBundle *pluginBundle = [NSBundle bundleForClass:[self class]];
 	NSString *pluginName = [pluginBundle objectForInfoDictionaryKey:@"CFBundleName"];
 	NSString *versionString = [pluginBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
-	NSString *startupMessage = [NSString stringWithFormat:@"\n----------\r\n%@ version %@ launched...\r\n----------\r\n", pluginName, versionString];
+	NSString *startupMessage = [NSString stringWithFormat:@"\r\n%@ version %@ loaded...\r\n", pluginName, versionString];
 	[self sendMessage:startupMessage];
 	
 	// start window controller
@@ -54,6 +54,8 @@ void toggleClipManagerWindow() {
 
 - (void)toggleApplicationWindow;
 {
+	// 
+	//[[mainWindowController window] orderOut:nil]; // hide
 	[mainWindowController showWindow:nil];
 }
 
