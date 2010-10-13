@@ -1,0 +1,13 @@
+//
+// Project level XCode configuration file defines common settings for all AutoCAD based component build.
+// XCode configuration files are used to configure consistent build
+// settings across projects.
+//
+
+#include "/Developer/Autodesk/ObjectARX 2011/inc/prj_arx.xcconfig"
+#include "/Developer/Autodesk/ObjectARX 2011/inc/prj_debug.xcconfig"
+#include "arx_common.xcconfig"
+
+GCC_PREPROCESSOR_DEFINITIONS = $(GCC_PREPROCESSOR_DEFINITIONS) $(DBXPROJ_PREPROCESSOR_DEFINITIONS) $(ARXPROJ_PREPROCESSOR_DEFINITIONS) $(DEBUGPROJ_PREPROCESSOR_DEFINITIONS)
+
+OTHER_LDFLAGS = $(DBXPROJ_OTHER_LDFLAGS) $(ARXPROJ_OTHER_LDFLAGS)

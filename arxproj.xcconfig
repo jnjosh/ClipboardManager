@@ -1,0 +1,19 @@
+//
+// Project level XCode configuration file defines common settings for all AutoCAD based component build.
+// XCode configuration files are used to configure consistent build
+// settings across projects.
+//
+
+ARCHS = x86_64
+SDKROOT = ${DEVELOPER_SDK_DIR}/MacOSX10.5.sdk
+
+GCC_PREPROCESSOR_DEFINITIONS = $(GCC_PREPROCESSOR_DEFINITIONS) OSX_SYSTEM _NATIVE_WCHAR_T_DEFINED UNICODE ACDB_EXT//ACIS_SOLIDS ASM_OSX
+
+#include "/Developer/Autodesk/ObjectARX 2011/inc/arxenv.xcconfig"
+
+HEADER_SEARCH_PATHS      = $(PATH_ARXSDK) $(HEADER_SEARCH_PATHS)
+USER_HEADER_SEARCH_PATHS = $(PATH_ARXSDK) $(USER_HEADER_SEARCH_PATHS)
+
+LIBRARY_SEARCH_PATHS     = $(PATH_AUTOCAD)
+FRAMEWORK_SEARCH_PATHS   = $(PATH_AUTOCAD)
+OTHER_LDFLAGS = -lacfirst -lwinapi -lacdb -laccore -lgelib

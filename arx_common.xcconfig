@@ -1,0 +1,14 @@
+//
+// Project level XCode configuration file defines common settings for all AutoCAD based component build.
+// XCode configuration files are used to configure consistent build
+// settings across projects.
+//
+
+PRODUCT_NAME = ClipboardManager
+WRAPPER_EXTENSION = bundle
+INFOPLIST_FILE = Info.plist
+ALWAYS_SEARCH_USER_PATHS = NO
+
+GCC_PRECOMPILE_PREFIX_HEADER = YES
+GCC_PREFIX_HEADER = ClipboardManager_Prefix.pch
+GCC_MODEL_TUNING = G5
