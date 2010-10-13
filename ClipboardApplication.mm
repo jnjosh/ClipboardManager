@@ -49,6 +49,7 @@ void toggleClipManagerWindow() {
 	
 	// start window controller
 	mainWindowController = [[[ClipboardWindowController alloc] initWithWindowNibName:@"MainWindow"] retain];
+	[[mainWindowController window] setTitle:pluginName];
 }
 
 - (void)toggleApplicationWindow;
