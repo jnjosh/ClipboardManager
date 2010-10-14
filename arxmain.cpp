@@ -22,7 +22,7 @@ extern void toggleClipManagerWindow();
 void initApp()
 {
 	startClipManagerPlugin();
-    acedRegCmds->addCommand(L"CLIPBOARD_COMMANDS", L"clipmgr", L"clipmgr", ACRX_CMD_TRANSPARENT, toggleClipManagerWindow);
+    acedRegCmds->addCommand(L"CLIPBOARD_COMMANDS", L"clipmgr", L"clipmgr", ACRX_CMD_MODAL, toggleClipManagerWindow);
 }
 
 void unloadApp()

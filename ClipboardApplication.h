@@ -12,8 +12,13 @@
 
 @interface ClipboardApplication : NSObject { 
 	ClipboardWindowController *mainWindowController;
+	NSString *appName;
+	NSString *appVersion;
 }
 @property (retain, readonly) ClipboardWindowController *mainWindowController;
+@property (retain, readonly) NSString *appName;
+@property (retain, readonly) NSString *appVersion;
+
 - (void)pluginDidLaunch;
 
 - (void)toggleApplicationWindow;
