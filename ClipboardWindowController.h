@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ClipboardWindowController : NSWindowController {
-	IBOutlet NSTextField *messageField;
-}
+@class ClipboardViewController;
 
-- (IBAction)saySomething:(id)sender;
+@interface ClipboardWindowController : NSWindowController {
+	IBOutlet ClipboardViewController *mainViewController;
+}
+- (IBAction)showAboutWindow;
 @end

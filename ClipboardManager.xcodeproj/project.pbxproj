@@ -13,6 +13,11 @@
 		A42E03651263AA390050268E /* PackageContents.xml in Copy PAL File */ = {isa = PBXBuildFile; fileRef = A42E03431263A9970050268E /* PackageContents.xml */; };
 		A42E03B41263AFC20050268E /* ClipboardApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = A42E03B31263AFC20050268E /* ClipboardApplication.mm */; };
 		A42E03B71263B05C0050268E /* ClipboardCadHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A42E03B61263B05C0050268E /* ClipboardCadHelper.mm */; };
+		A439D3B51267384900426874 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A439D3B41267384900426874 /* BWToolkitFramework.framework */; };
+		A439D3F21267388B00426874 /* BWToolkitFramework.framework in Copy Frameworks Files */ = {isa = PBXBuildFile; fileRef = A439D3B41267384900426874 /* BWToolkitFramework.framework */; };
+		A439D4111267407400426874 /* ClipboardAboutWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A439D4101267407400426874 /* ClipboardAboutWindowController.mm */; };
+		A439D4131267409400426874 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A439D4121267409400426874 /* AboutWindow.xib */; };
+		A439D417126741B700426874 /* ClipboardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A439D416126741B700426874 /* ClipboardViewController.mm */; };
 		A46F2267126642FD0053E216 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46F2266126642FD0053E216 /* MainWindow.xib */; };
 		C9261AD211213C4C00EB7B69 /* arxmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9261AD111213C4C00EB7B69 /* arxmain.cpp */; };
 /* End PBXBuildFile section */
@@ -27,6 +32,17 @@
 				A42E03651263AA390050268E /* PackageContents.xml in Copy PAL File */,
 			);
 			name = "Copy PAL File";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A439D3ED1267387200426874 /* Copy Frameworks Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A439D3F21267388B00426874 /* BWToolkitFramework.framework in Copy Frameworks Files */,
+			);
+			name = "Copy Frameworks Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -46,6 +62,12 @@
 		A42E03B31263AFC20050268E /* ClipboardApplication.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClipboardApplication.mm; sourceTree = "<group>"; };
 		A42E03B51263B05C0050268E /* ClipboardCadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardCadHelper.h; sourceTree = "<group>"; };
 		A42E03B61263B05C0050268E /* ClipboardCadHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClipboardCadHelper.mm; sourceTree = "<group>"; };
+		A439D3B41267384900426874 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Users/jnjosh/Documents/Frameworks/BWToolkit/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
+		A439D40F1267407400426874 /* ClipboardAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardAboutWindowController.h; sourceTree = "<group>"; };
+		A439D4101267407400426874 /* ClipboardAboutWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClipboardAboutWindowController.mm; sourceTree = "<group>"; };
+		A439D4121267409400426874 /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
+		A439D415126741B700426874 /* ClipboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardViewController.h; sourceTree = "<group>"; };
+		A439D416126741B700426874 /* ClipboardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClipboardViewController.mm; sourceTree = "<group>"; };
 		A46F210A1265EC250053E216 /* SynthesizeSingletons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingletons.h; sourceTree = "<group>"; };
 		A46F2266126642FD0053E216 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		C9261AD111213C4C00EB7B69 /* arxmain.cpp */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.cpp.cpp; path = arxmain.cpp; sourceTree = "<group>"; };
@@ -60,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				A439D3B51267384900426874 /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +118,7 @@
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 				A42E03431263A9970050268E /* PackageContents.xml */,
 				A46F2266126642FD0053E216 /* MainWindow.xib */,
+				A439D4121267409400426874 /* AboutWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -103,12 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				A46F21091265EC090053E216 /* Utilities */,
+				A439D441126749DB00426874 /* Helpers */,
+				A439D440126749C200426874 /* Controllers */,
 				A42E03B21263AFC20050268E /* ClipboardApplication.h */,
 				A42E03B31263AFC20050268E /* ClipboardApplication.mm */,
-				A42E03301263A73B0050268E /* ClipboardWindowController.h */,
-				A42E03311263A73B0050268E /* ClipboardWindowController.mm */,
-				A42E03B51263B05C0050268E /* ClipboardCadHelper.h */,
-				A42E03B61263B05C0050268E /* ClipboardCadHelper.mm */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -117,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				A439D3B41267384900426874 /* BWToolkitFramework.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -148,6 +171,28 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		A439D440126749C200426874 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A42E03301263A73B0050268E /* ClipboardWindowController.h */,
+				A42E03311263A73B0050268E /* ClipboardWindowController.mm */,
+				A439D415126741B700426874 /* ClipboardViewController.h */,
+				A439D416126741B700426874 /* ClipboardViewController.mm */,
+				A439D40F1267407400426874 /* ClipboardAboutWindowController.h */,
+				A439D4101267407400426874 /* ClipboardAboutWindowController.mm */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A439D441126749DB00426874 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A42E03B51263B05C0050268E /* ClipboardCadHelper.h */,
+				A42E03B61263B05C0050268E /* ClipboardCadHelper.mm */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		A46F21091265EC090053E216 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +220,7 @@
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
+				A439D3ED1267387200426874 /* Copy Frameworks Files */,
 				A42E03781263AA420050268E /* Copy PAL File */,
 			);
 			buildRules = (
@@ -218,6 +264,7 @@
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
 				A46F2267126642FD0053E216 /* MainWindow.xib in Resources */,
+				A439D4131267409400426874 /* AboutWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +279,8 @@
 				A42E03321263A73B0050268E /* ClipboardWindowController.mm in Sources */,
 				A42E03B41263AFC20050268E /* ClipboardApplication.mm in Sources */,
 				A42E03B71263B05C0050268E /* ClipboardCadHelper.mm in Sources */,
+				A439D4111267407400426874 /* ClipboardAboutWindowController.mm in Sources */,
+				A439D417126741B700426874 /* ClipboardViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,12 +301,20 @@
 		1DEB913B08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Frameworks/BWToolkit\"",
+				);
 			};
 			name = Debug;
 		};
 		1DEB913C08733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Frameworks/BWToolkit\"",
+				);
 			};
 			name = Release;
 		};
@@ -265,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977176811F8485800038E11 /* arx_debug.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -272,6 +330,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977176711F8485800038E11 /* arx_release.xcconfig */;
 			buildSettings = {
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};

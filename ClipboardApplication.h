@@ -23,4 +23,5 @@
 
 - (void)toggleApplicationWindow;
 - (void)sendMessage:(NSString*)message;
+
 @end
