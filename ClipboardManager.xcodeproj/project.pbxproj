@@ -127,16 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				A46F21091265EC090053E216 /* Utilities */,
+				A439D441126749DB00426874 /* Helpers */,
+				A439D440126749C200426874 /* Controllers */,
 				A42E03B21263AFC20050268E /* ClipboardApplication.h */,
 				A42E03B31263AFC20050268E /* ClipboardApplication.mm */,
-				A42E03301263A73B0050268E /* ClipboardWindowController.h */,
-				A42E03311263A73B0050268E /* ClipboardWindowController.mm */,
-				A439D415126741B700426874 /* ClipboardViewController.h */,
-				A439D416126741B700426874 /* ClipboardViewController.mm */,
-				A42E03B51263B05C0050268E /* ClipboardCadHelper.h */,
-				A42E03B61263B05C0050268E /* ClipboardCadHelper.mm */,
-				A439D40F1267407400426874 /* ClipboardAboutWindowController.h */,
-				A439D4101267407400426874 /* ClipboardAboutWindowController.mm */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -175,6 +169,28 @@
 				32DBCF630370AF2F00C91783 /* ClipboardManager_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		A439D440126749C200426874 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A42E03301263A73B0050268E /* ClipboardWindowController.h */,
+				A42E03311263A73B0050268E /* ClipboardWindowController.mm */,
+				A439D415126741B700426874 /* ClipboardViewController.h */,
+				A439D416126741B700426874 /* ClipboardViewController.mm */,
+				A439D40F1267407400426874 /* ClipboardAboutWindowController.h */,
+				A439D4101267407400426874 /* ClipboardAboutWindowController.mm */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A439D441126749DB00426874 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A42E03B51263B05C0050268E /* ClipboardCadHelper.h */,
+				A42E03B61263B05C0050268E /* ClipboardCadHelper.mm */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		A46F21091265EC090053E216 /* Utilities */ = {
