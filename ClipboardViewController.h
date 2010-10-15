@@ -9,7 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import <BWToolkitFramework/BWToolkitFramework.h>
 
-@interface ClipboardViewController : NSViewController {
+@interface ClipboardViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
 	IBOutlet BWTransparentTableView *tableView;
 }
+- (IBAction)clearAllAction:(id)sender;
+
+- (void)clearAllClipboardItems;
+- (void)addClipboardItem;
+- (void)registerToMonitorClipboardItems;
+- (void)unregisterToMonitorClipboardItems;
+
 @end

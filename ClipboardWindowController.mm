@@ -19,7 +19,7 @@
 	[super dealloc];
 }
 
-- (IBAction)showAboutWindow;
+- (IBAction)showAboutWindow:(id)sender;
 {
 	ClipboardAboutWindowController *aboutWindow = [[ClipboardAboutWindowController alloc] initWithWindowNibName:@"AboutWindow"];
 	[aboutWindow showWindow:nil];
