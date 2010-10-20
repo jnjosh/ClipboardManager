@@ -12,6 +12,7 @@
 
 @interface ClipboardWindowController : NSWindowController {
 	IBOutlet ClipboardViewController *mainViewController;
+	IBOutlet NSButton *aboutButton;
 }
 - (IBAction)showAboutWindow:(id)sender;
 @end

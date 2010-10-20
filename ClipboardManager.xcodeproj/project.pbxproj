@@ -18,6 +18,7 @@
 		A439D4111267407400426874 /* ClipboardAboutWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A439D4101267407400426874 /* ClipboardAboutWindowController.mm */; };
 		A439D4131267409400426874 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A439D4121267409400426874 /* AboutWindow.xib */; };
 		A439D417126741B700426874 /* ClipboardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A439D416126741B700426874 /* ClipboardViewController.mm */; };
+		A4422806126F28C000680A55 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = A4422805126F28C000680A55 /* info.png */; };
 		A46F2267126642FD0053E216 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46F2266126642FD0053E216 /* MainWindow.xib */; };
 		C9261AD211213C4C00EB7B69 /* arxmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9261AD111213C4C00EB7B69 /* arxmain.cpp */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		A439D4121267409400426874 /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 		A439D415126741B700426874 /* ClipboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardViewController.h; sourceTree = "<group>"; };
 		A439D416126741B700426874 /* ClipboardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClipboardViewController.mm; sourceTree = "<group>"; };
+		A4422805126F28C000680A55 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		A46F210A1265EC250053E216 /* SynthesizeSingletons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingletons.h; sourceTree = "<group>"; };
 		A46F2266126642FD0053E216 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		C9261AD111213C4C00EB7B69 /* arxmain.cpp */ = {isa = PBXFileReference; fileEncoding = 12; lastKnownFileType = sourcecode.cpp.cpp; path = arxmain.cpp; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A4422805126F28C000680A55 /* info.png */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 				A42E03431263A9970050268E /* PackageContents.xml */,
@@ -265,6 +268,7 @@
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
 				A46F2267126642FD0053E216 /* MainWindow.xib in Resources */,
 				A439D4131267409400426874 /* AboutWindow.xib in Resources */,
+				A4422806126F28C000680A55 /* info.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +326,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977176811F8485800038E11 /* arx_debug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Applications/Autodesk/Sledgehammer\\ RC2/AutoCAD.app/Contents/Library",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/Applications/Autodesk/Sledgehammer\\ RC2/AutoCAD.app/Contents/Library",
+				);
 				SDKROOT = macosx10.6;
 			};
 			name = Debug;
@@ -330,6 +340,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C977176711F8485800038E11 /* arx_release.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Applications/Autodesk/Sledgehammer\\ RC2/AutoCAD.app/Contents/Library",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/Applications/Autodesk/Sledgehammer\\ RC2/AutoCAD.app/Contents/Library",
+				);
 				SDKROOT = macosx10.6;
 			};
 			name = Release;

@@ -46,6 +46,8 @@ void toggleClipManagerWindow() {
 	NSBundle *pluginBundle = [NSBundle bundleForClass:[self class]];
 	[self setAppName:[pluginBundle objectForInfoDictionaryKey:@"CFBundleName"]];
 	[self setAppVersion:[pluginBundle objectForInfoDictionaryKey:@"CFBundleVersion"]];
+	
+	NSLog(@"Loading/launching :  \"%@.bundle\"", [self appName]);
 	NSString *startupMessage = [NSString stringWithFormat:@"\r\n%@ version %@ loaded...\r\n", [self appName], [self appVersion]];
 	[self sendMessage:startupMessage];
 	

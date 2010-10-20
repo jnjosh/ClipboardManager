@@ -11,8 +11,14 @@
 
 @interface ClipboardViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
 	IBOutlet BWTransparentTableView *tableView;
+@private
+	NSMutableArray *tableViewCellValues;
+	NSTimer *pollPasteboardTimer;
+	NSInteger originCount;
 }
 - (IBAction)clearAllAction:(id)sender;
+
+- (void)pasteboardUpdated;
 
 - (void)clearAllClipboardItems;
 - (void)addClipboardItem;

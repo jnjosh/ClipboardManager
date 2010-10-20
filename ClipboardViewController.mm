@@ -27,14 +27,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
 	if (self = [super initWithCoder:aDecoder]) {
-		[self registerToMonitorClipboardItems];
-	}
-	return self;
-}
-
-- (id)init
-{
-	if (self = [super init]) {
+		tableViewCellValues = [[NSMutableArray alloc] init];
 		[self registerToMonitorClipboardItems];
 	}
 	return self;
@@ -42,21 +35,37 @@
 
 - (void)registerToMonitorClipboardItems;
 {
-	//http://en.wikibooks.org/wiki/Programming_Mac_OS_X_with_Cocoa_for_Beginners/Archiving
-	/*
-	NSPasteboard *cb = [NSPasteboard generalPasteboard];
-	for (NSString *type_string in [cb types]) {
-		if ([type_string isEqualToString:@"com.autodesk.autocad.drawing"]) {
-			[[ClipboardCadHelper sharedClipboardCadHelper] sendMessage:type_string];
-		}
-	}
-	*/
+	NSPasteboard *pb = [NSPasteboard generalPasteboard];
+	[pb declareTypes:[NSArray arrayWithObject:ADSKPasteboardTypeString] owner:nil];
+	originCount = [pb changeCount];
+	pollPasteboardTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0
+														   target:self 
+														 selector:@selector(pasteboardUpdated)
+														 userInfo:nil 
+														   repeats:YES] retain];
 	
+	//http://en.wikibooks.org/wiki/Programming_Mac_OS_X_with_Cocoa_for_Beginners/Archiving
+	//http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/PasteboardGuide106/Articles/pbUpdating105.html
 	// http://www.cocoadev.com/index.pl?NSTableViewTutorial
 }
 
 - (void)unregisterToMonitorClipboardItems;
 {
+	[pollPasteboardTimer invalidate];
+	[pollPasteboardTimer release];
+}
+
+#pragma mark -
+#pragma mark Table View Delegate Req.
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+	return [tableViewCellValues count];
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
+{
+	return [tableViewCellValues objectAtIndex:row];
 }
 
 #pragma mark -
@@ -70,13 +79,38 @@
 #pragma mark -
 #pragma mark clipboard management
 
-- (void)clearAllClipboardItems;
+- (void)pasteboardUpdated;
 {
+	NSInteger currentCount = [[NSPasteboard generalPasteboard] changeCount];
+	if (currentCount != originCount) {
+		originCount = currentCount;
+		if ([[NSPasteboard generalPasteboard] availableTypeFromArray:[NSArray arrayWithObject:ADSKPasteboardTypeString]]) {
+			[self addClipboardItem];
+		}
+	}
 }
 
 - (void)addClipboardItem;
 {
+	NSPasteboard *pb = [NSPasteboard generalPasteboard];
+
+	// add item to array
+	// reflect on entities
+	//	NSLog(@"value: %@", [cb dataForType:@"com.autodesk.autocad.drawing"]);	
+	
+	[tableViewCellValues addObject:[NSString stringWithFormat:@"New Data in clipboard - %i", originCount]];
+	[tableView reloadData];
 }
 
+- (void)clearAllClipboardItems;
+{
+	NSPasteboard *pb = [NSPasteboard generalPasteboard];
+	[pb clearContents];
+	
+	[tableViewCellValues removeAllObjects];
+	[tableViewCellValues release];
+	tableViewCellValues = [[NSMutableArray alloc] init];
+	[tableView reloadData];
+}
 
 @end
