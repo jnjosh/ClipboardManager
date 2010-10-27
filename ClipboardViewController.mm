@@ -7,6 +7,7 @@
 //
 
 #import "ClipboardViewController.h"
+#import "ClipboardApplication.h"
 #import "ClipboardCadHelper.h"
 
 @implementation ClipboardViewController
@@ -18,6 +19,7 @@
 {
 	[self unregisterToMonitorClipboardItems];
 	[tableView release], tableView = nil;
+	[clipboardData release], clipboardData = nil;
 	[super dealloc];
 }
 
@@ -27,6 +29,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
 	if (self = [super initWithCoder:aDecoder]) {
+		clipboardData = [[NSMutableArray alloc] init];
 		tableViewCellValues = [[NSMutableArray alloc] init];
 		[self registerToMonitorClipboardItems];
 	}
@@ -36,17 +39,12 @@
 - (void)registerToMonitorClipboardItems;
 {
 	NSPasteboard *pb = [NSPasteboard generalPasteboard];
-	[pb declareTypes:[NSArray arrayWithObject:ADSKPasteboardTypeString] owner:nil];
 	originCount = [pb changeCount];
 	pollPasteboardTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0
 														   target:self 
 														 selector:@selector(pasteboardUpdated)
 														 userInfo:nil 
 														   repeats:YES] retain];
-	
-	//http://en.wikibooks.org/wiki/Programming_Mac_OS_X_with_Cocoa_for_Beginners/Archiving
-	//http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/PasteboardGuide106/Articles/pbUpdating105.html
-	// http://www.cocoadev.com/index.pl?NSTableViewTutorial
 }
 
 - (void)unregisterToMonitorClipboardItems;
@@ -66,6 +64,24 @@
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 {
 	return [tableViewCellValues objectAtIndex:row];
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification
+{
+	[self unregisterToMonitorClipboardItems];
+	NSUInteger selectedItem;
+	BWTransparentTableView *tv = [notification object];
+	selectedItem = [[tv selectedRowIndexes] firstIndex];
+	
+	NSPasteboard *pb = [NSPasteboard generalPasteboard];
+	[pb clearContents];
+	
+	NSMutableDictionary *pbData = [clipboardData objectAtIndex:(clipboardCounter-1)];
+	for (NSString *key in [pbData allKeys]) {
+		NSLog(@"set data for key = %@ --> %@", key, [pbData objectForKey:key] == nil ? @"NO" : @"YES");
+		[pb setData:[pbData objectForKey:key] forType:key];
+	}
+	[self registerToMonitorClipboardItems];
 }
 
 #pragma mark -
@@ -92,13 +108,32 @@
 
 - (void)addClipboardItem;
 {
+	// add item to array
+	// TODO: reflect on entities
 	NSPasteboard *pb = [NSPasteboard generalPasteboard];
 
-	// add item to array
-	// reflect on entities
-	//	NSLog(@"value: %@", [cb dataForType:@"com.autodesk.autocad.drawing"]);	
+	NSDate *dateNow = [NSDate date];
+	NSLocale *thisLocale = [NSLocale currentLocale];
+	NSDateFormatter *format = [[NSDateFormatter alloc] init];
+	[format setLocale:thisLocale];
+	[format setFormatterBehavior:NSDateFormatterMediumStyle];
+	[format setDateFormat:@"hh:mm a"];
+	NSString *timeStamp = [format stringFromDate:dateNow];
 	
-	[tableViewCellValues addObject:[NSString stringWithFormat:@"New Data in clipboard - %i", originCount]];
+	clipboardCounter++;
+
+	//public.utf16-plain-text
+	
+	NSMutableDictionary *pbData = [[NSMutableDictionary alloc] init];
+	for (NSString *typeName in [pb types]) {
+		NSLog(@"type = %@", typeName);
+		NSLog(@"%@", [pb propertyListForType:typeName]);
+		NSLog(@"%@", [pb propertyListForType:NSFilenamesPboardType]);
+
+		[pbData setObject:[pb dataForType:typeName] forKey:typeName];
+	}
+	[clipboardData addObject:pbData];
+	[tableViewCellValues addObject:[NSString stringWithFormat:@"Clipboard Entry #%i - %@", clipboardCounter, timeStamp]];
 	[tableView reloadData];
 }
 

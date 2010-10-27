@@ -33,4 +33,4 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ClipboardCadHelper);
 	return @"";
 }
 
-@end
+@end 

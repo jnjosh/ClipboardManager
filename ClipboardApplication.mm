@@ -74,6 +74,14 @@ void toggleClipManagerWindow() {
 	[[ClipboardCadHelper sharedClipboardCadHelper] sendMessage:message];
 }
 
++ (ClipboardApplication *)sharedApplication;
+{
+	return plugin;
+}
+
+#pragma mark -
+#pragma mark property synths / overrides
+
 @synthesize mainWindowController, appName, appVersion;
 
 @end

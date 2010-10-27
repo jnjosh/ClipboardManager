@@ -13,8 +13,11 @@
 	IBOutlet BWTransparentTableView *tableView;
 @private
 	NSMutableArray *tableViewCellValues;
+	NSMutableArray *clipboardData;
+
 	NSTimer *pollPasteboardTimer;
 	NSInteger originCount;
+	NSUInteger clipboardCounter;
 }
 - (IBAction)clearAllAction:(id)sender;
 

@@ -15,12 +15,14 @@
 	NSString *appName;
 	NSString *appVersion;
 }
+
 @property (retain, readonly) ClipboardWindowController *mainWindowController;
 @property (copy) NSString *appName;
 @property (copy) NSString *appVersion;
 
-- (void)pluginDidLaunch;
++ (ClipboardApplication *)sharedApplication;
 
+- (void)pluginDidLaunch;
 - (void)toggleApplicationWindow;
 - (void)sendMessage:(NSString*)message;
 
