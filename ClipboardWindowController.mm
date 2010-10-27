@@ -7,13 +7,22 @@
 //
 
 #import "ClipboardWindowController.h"
+#import "ClipboardViewController.h"
+#import "ClipboardAboutWindowController.h"
 #import "ClipboardCadHelper.h"
 
 @implementation ClipboardWindowController
 
-- (IBAction)saySomething:(id)sender;
+- (void)dealloc 
 {
-	[[ClipboardCadHelper sharedClipboardCadHelper] sendMessage:[messageField stringValue]];
+	[mainViewController release], mainViewController = nil;
+	[super dealloc];
+}
+
+- (IBAction)showAboutWindow:(id)sender;
+{
+	ClipboardAboutWindowController *aboutWindow = [[ClipboardAboutWindowController alloc] initWithWindowNibName:@"AboutWindow"];
+	[aboutWindow showWindow:nil];
 }
 
 @end

@@ -8,9 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern NSString *ADSKPasteboardTypeString;
+
 @interface ClipboardCadHelper : NSObject {
 }
 + (ClipboardCadHelper *)sharedClipboardCadHelper;
 
 - (void)sendMessage:(NSString *)message;
+- (void)sendCommand:(NSString *)commandName;
+
+- (NSString *)documentDescription:(NSString *)document;
 @end

@@ -33,6 +33,8 @@ void toggleClipManagerWindow() {
 - (void)dealloc
 {
 	[mainWindowController release], mainWindowController = nil;
+	[appName release], appName = nil;
+	[appVersion release], appVersion = nil;
 	[super dealloc];
 }
 
@@ -42,18 +44,26 @@ void toggleClipManagerWindow() {
 - (void)pluginDidLaunch;
 {
 	NSBundle *pluginBundle = [NSBundle bundleForClass:[self class]];
-	NSString *pluginName = [pluginBundle objectForInfoDictionaryKey:@"CFBundleName"];
-	NSString *versionString = [pluginBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
-	NSString *startupMessage = [NSString stringWithFormat:@"\n----------\r\n%@ version %@ launched...\r\n----------\r\n", pluginName, versionString];
+	[self setAppName:[pluginBundle objectForInfoDictionaryKey:@"CFBundleName"]];
+	[self setAppVersion:[pluginBundle objectForInfoDictionaryKey:@"CFBundleVersion"]];
+	
+	NSLog(@"Loading/launching :  \"%@.bundle\"", [self appName]);
+	NSString *startupMessage = [NSString stringWithFormat:@"\r\n%@ version %@ loaded...\r\n", [self appName], [self appVersion]];
 	[self sendMessage:startupMessage];
 	
 	// start window controller
 	mainWindowController = [[[ClipboardWindowController alloc] initWithWindowNibName:@"MainWindow"] retain];
+	[[mainWindowController window] setTitle:[self appName]];
 }
 
 - (void)toggleApplicationWindow;
 {
-	[mainWindowController showWindow:nil];
+	if ([[mainWindowController window] isVisible]) {
+		[[mainWindowController window] orderOut:nil];
+	}
+	else {
+		[[mainWindowController window] makeKeyAndOrderFront:nil];
+	}
 }
 
 #pragma mark -
@@ -64,6 +74,14 @@ void toggleClipManagerWindow() {
 	[[ClipboardCadHelper sharedClipboardCadHelper] sendMessage:message];
 }
 
-@synthesize mainWindowController;
++ (ClipboardApplication *)sharedApplication;
+{
+	return plugin;
+}
+
+#pragma mark -
+#pragma mark property synths / overrides
+
+@synthesize mainWindowController, appName, appVersion;
 
 @end
