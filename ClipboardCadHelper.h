@@ -15,7 +15,7 @@ extern NSString *ADSKPasteboardTypeString;
 + (ClipboardCadHelper *)sharedClipboardCadHelper;
 
 - (void)sendMessage:(NSString *)message;
-- (void)sendCommand:(NSString *)commandName;
+- (void)beginPaste;
 
 - (NSString *)documentDescription:(NSString *)document;
 @end

@@ -81,6 +81,9 @@
 		NSLog(@"set data for key = %@ --> %@", key, [pbData objectForKey:key] == nil ? @"NO" : @"YES");
 		[pb setData:[pbData objectForKey:key] forType:key];
 	}
+	
+	[[ClipboardCadHelper sharedClipboardCadHelper] beginPaste];
+	
 	[self registerToMonitorClipboardItems];
 }
 
@@ -89,6 +92,7 @@
 
 - (IBAction)clearAllAction:(id)sender;
 {
+	clipboardCounter = 0;
 	[self clearAllClipboardItems];
 }
 
@@ -100,6 +104,23 @@
 	NSInteger currentCount = [[NSPasteboard generalPasteboard] changeCount];
 	if (currentCount != originCount) {
 		originCount = currentCount;
+		////
+		
+		
+		NSMutableArray *classes = [NSMutableArray array];
+		[classes addObject:[NSPasteboardItem class]];
+		NSDictionary *options = [NSDictionary dictionary];
+		NSArray *copiedItems = [[NSPasteboard generalPasteboard] readObjectsForClasses:classes options:options];
+		if (copiedItems != nil) {
+			NSPasteboardItem *item = [copiedItems objectAtIndex:0];
+			
+			NSLog(@"SOMETHING HERE!!! %@",[item types]);
+			
+			NSLog(@"copied items :: %@", copiedItems);
+		}
+		
+		
+		////
 		if ([[NSPasteboard generalPasteboard] availableTypeFromArray:[NSArray arrayWithObject:ADSKPasteboardTypeString]]) {
 			[self addClipboardItem];
 		}
@@ -108,10 +129,7 @@
 
 - (void)addClipboardItem;
 {
-	// add item to array
-	// TODO: reflect on entities
 	NSPasteboard *pb = [NSPasteboard generalPasteboard];
-
 	NSDate *dateNow = [NSDate date];
 	NSLocale *thisLocale = [NSLocale currentLocale];
 	NSDateFormatter *format = [[NSDateFormatter alloc] init];
@@ -126,9 +144,11 @@
 	
 	NSMutableDictionary *pbData = [[NSMutableDictionary alloc] init];
 	for (NSString *typeName in [pb types]) {
-		NSLog(@"type = %@", typeName);
-		NSLog(@"%@", [pb propertyListForType:typeName]);
-		NSLog(@"%@", [pb propertyListForType:NSFilenamesPboardType]);
+		NSLog(@"The Type = %@", typeName); 
+		NSLog(@"Value %@", [pb dataForType:typeName]);
+		NSLog(@"Value %@", [pb dataForType:NSFilenamesPboardType]);
+		NSLog(@"Value %@", [pb dataForType:NSStringPboardType]);
+		NSLog(@"Value %@", [pb dataForType:@"CorePasteboardFlavorType 0x75747874"]);
 
 		[pbData setObject:[pb dataForType:typeName] forKey:typeName];
 	}

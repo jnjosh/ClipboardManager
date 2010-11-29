@@ -9,6 +9,7 @@
 #import "ClipboardCadHelper.h"
 #import "SynthesizeSingletons.h"
 #include <aced.h>
+#include <adscodes.h>
 
 NSString *ADSKPasteboardTypeString = @"com.autodesk.autocad.drawing";
 
@@ -21,10 +22,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ClipboardCadHelper);
 	acutPrintf((const ACHAR *)[messageString cStringUsingEncoding:NSUTF32LittleEndianStringEncoding]);
 }
 
-- (void)sendCommand:(NSString *)commandName;
+- (void)beginPaste;
 {
-//	NSString *commandString = [NSString stringWithFormat:@"\r\n^c^c(command \"%@\")\n", commandName];
-//	ads_queueexpr((ACHAR *)[commandString cStringUsingEncoding:NSUTF32LittleEndianStringEncoding]);
+	// crappy test code that doesn't work ... brain needs ARX refresher
+	struct resbuf *cmdlist;
+	cmdlist = acutBuildList(RTSTR, L"_pasteclip", RTNONE);
+	if (cmdlist == NULL) {
+		acdbFail(L"No list, sorry");
+		return;
+	}
+	acedCmd(cmdlist);
+	acutRelRb(cmdlist);
 }
 
 - (NSString *)documentDescription:(NSString *)document;
