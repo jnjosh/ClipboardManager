@@ -106,7 +106,6 @@
 		originCount = currentCount;
 		////
 		
-		
 		NSMutableArray *classes = [NSMutableArray array];
 		[classes addObject:[NSPasteboardItem class]];
 		NSDictionary *options = [NSDictionary dictionary];
@@ -150,6 +149,10 @@
 		NSLog(@"Value %@", [pb dataForType:NSStringPboardType]);
 		NSLog(@"Value %@", [pb dataForType:@"CorePasteboardFlavorType 0x75747874"]);
 
+		NSData *urlDataString = [pb dataForType:@"CorePasteboardFlavorType 0x75747874"];
+		NSString *urlString = [[NSString alloc] initWithData:urlDataString encoding:NSMacOSRomanStringEncoding];
+		NSLog(@"urlString: %@", urlString);
+		
 		[pbData setObject:[pb dataForType:typeName] forKey:typeName];
 	}
 	[clipboardData addObject:pbData];
