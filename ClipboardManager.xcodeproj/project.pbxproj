@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		A415FBC612ADDF8500048A4A /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A415FBC512ADDF8500048A4A /* BWToolkitFramework.framework */; };
 		A42E03321263A73B0050268E /* ClipboardWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A42E03311263A73B0050268E /* ClipboardWindowController.mm */; };
 		A42E03651263AA390050268E /* PackageContents.xml in Copy PAL File */ = {isa = PBXBuildFile; fileRef = A42E03431263A9970050268E /* PackageContents.xml */; };
 		A42E03B41263AFC20050268E /* ClipboardApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = A42E03B31263AFC20050268E /* ClipboardApplication.mm */; };
@@ -16,8 +17,6 @@
 		A439D4111267407400426874 /* ClipboardAboutWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A439D4101267407400426874 /* ClipboardAboutWindowController.mm */; };
 		A439D4131267409400426874 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A439D4121267409400426874 /* AboutWindow.xib */; };
 		A439D417126741B700426874 /* ClipboardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A439D416126741B700426874 /* ClipboardViewController.mm */; };
-		A441E3F912870159000D8216 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A441E3F812870159000D8216 /* BWToolkitFramework.framework */; };
-		A441E3FF12870162000D8216 /* BWToolkitFramework.framework in Copy Frameworks Files */ = {isa = PBXBuildFile; fileRef = A441E3F812870159000D8216 /* BWToolkitFramework.framework */; };
 		A4422806126F28C000680A55 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = A4422805126F28C000680A55 /* info.png */; };
 		A46F2267126642FD0053E216 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46F2266126642FD0053E216 /* MainWindow.xib */; };
 		C9261AD211213C4C00EB7B69 /* arxmain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9261AD111213C4C00EB7B69 /* arxmain.cpp */; };
@@ -41,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A441E3FF12870162000D8216 /* BWToolkitFramework.framework in Copy Frameworks Files */,
 			);
 			name = "Copy Frameworks Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +54,7 @@
 		32DBCF630370AF2F00C91783 /* ClipboardManager_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardManager_Prefix.pch; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* ClipboardManager.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipboardManager.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A415FBC512ADDF8500048A4A /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BWToolkitFramework.framework; sourceTree = "<group>"; };
 		A42E03301263A73B0050268E /* ClipboardWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardWindowController.h; sourceTree = "<group>"; };
 		A42E03311263A73B0050268E /* ClipboardWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClipboardWindowController.mm; sourceTree = "<group>"; };
 		A42E03431263A9970050268E /* PackageContents.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PackageContents.xml; sourceTree = "<group>"; };
@@ -68,7 +67,6 @@
 		A439D4121267409400426874 /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 		A439D415126741B700426874 /* ClipboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipboardViewController.h; sourceTree = "<group>"; };
 		A439D416126741B700426874 /* ClipboardViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClipboardViewController.mm; sourceTree = "<group>"; };
-		A441E3F812870159000D8216 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Users/jnjosh/Frameworks/BWToolkit/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
 		A4422805126F28C000680A55 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		A46F210A1265EC250053E216 /* SynthesizeSingletons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingletons.h; sourceTree = "<group>"; };
 		A46F2266126642FD0053E216 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -84,7 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
-				A441E3F912870159000D8216 /* BWToolkitFramework.framework in Frameworks */,
+				A415FBC612ADDF8500048A4A /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +139,8 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A415FBC512ADDF8500048A4A /* BWToolkitFramework.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
-				A441E3F812870159000D8216 /* BWToolkitFramework.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -308,6 +306,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Frameworks/BWToolkit\"",
+					"\"$(SRCROOT)\"",
 				);
 			};
 			name = Debug;
@@ -318,6 +317,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Frameworks/BWToolkit\"",
+					"\"$(SRCROOT)\"",
 				);
 			};
 			name = Release;

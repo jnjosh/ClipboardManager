@@ -104,22 +104,19 @@
 	NSInteger currentCount = [[NSPasteboard generalPasteboard] changeCount];
 	if (currentCount != originCount) {
 		originCount = currentCount;
-		////
 		
+		//// Access the item in the clipboard
 		NSMutableArray *classes = [NSMutableArray array];
 		[classes addObject:[NSPasteboardItem class]];
+
 		NSDictionary *options = [NSDictionary dictionary];
 		NSArray *copiedItems = [[NSPasteboard generalPasteboard] readObjectsForClasses:classes options:options];
 		if (copiedItems != nil) {
 			NSPasteboardItem *item = [copiedItems objectAtIndex:0];
-			
-			NSLog(@"SOMETHING HERE!!! %@",[item types]);
-			
 			NSLog(@"copied items :: %@", copiedItems);
 		}
 		
-		
-		////
+		//// if there is an element of type com.autodesk.autocad.drawing, add it to object list
 		if ([[NSPasteboard generalPasteboard] availableTypeFromArray:[NSArray arrayWithObject:ADSKPasteboardTypeString]]) {
 			[self addClipboardItem];
 		}
@@ -139,14 +136,13 @@
 	
 	clipboardCounter++;
 
-	//public.utf16-plain-text
-	
+	// attempting to read what is available in the pasteboard
 	NSMutableDictionary *pbData = [[NSMutableDictionary alloc] init];
 	for (NSString *typeName in [pb types]) {
 		NSLog(@"The Type = %@", typeName); 
 		NSLog(@"Value %@", [pb dataForType:typeName]);
 		NSLog(@"Value %@", [pb dataForType:NSFilenamesPboardType]);
-		NSLog(@"Value %@", [pb dataForType:NSStringPboardType]);
+		NSLog(@"Value %@", [pb dataForType:NSStringPboardType]);  	//public.utf16-plain-text
 		NSLog(@"Value %@", [pb dataForType:@"CorePasteboardFlavorType 0x75747874"]);
 
 		NSData *urlDataString = [pb dataForType:@"CorePasteboardFlavorType 0x75747874"];
@@ -155,11 +151,14 @@
 		
 		[pbData setObject:[pb dataForType:typeName] forKey:typeName];
 	}
+	
+	// add copied object to data array -- for retrieval later
 	[clipboardData addObject:pbData];
+	
 	[tableViewCellValues addObject:[NSString stringWithFormat:@"Clipboard Entry #%i - %@", clipboardCounter, timeStamp]];
 	[tableView reloadData];
 }
-
+	
 - (void)clearAllClipboardItems;
 {
 	NSPasteboard *pb = [NSPasteboard generalPasteboard];
